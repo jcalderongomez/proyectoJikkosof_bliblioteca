@@ -1,0 +1,9 @@
+.editar-libro-btn {
+  background-color: #4CAF50; /* Verde */
+  color: white; /* Color del texto */
+  margin-right: 8px; /* Espacio entre botones */
+}
+
+.editar-libro-btn:hover {
+  background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+}

@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Definición de la columna ID -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let miembro"> {{ miembro.id }} </td>
+  </ng-container>
+
+  <!-- Definición de la columna Nombre -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let miembro"> {{ miembro.nombre }} </td>
+  </ng-container>
+
+   <!-- Definición de la columna Nombre -->
+   <ng-container matColumnDef="librosPrestados">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let miembro"> {{ miembro.librosPrestados   }} </td>
+  </ng-container>
+
+  <!-- Definición de la columna Estado -->
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let miembro"> {{ miembro.estado ? 'Activo' : 'Inactivo' }} </td>
+  </ng-container>
+  <!-- ISBN Column -->
+  <ng-container matColumnDef="Accion">
+    <th mat-header-cell *matHeaderCellDef> Accion </th>
+    <td mat-cell *matCellDef="let miembro">
+      <button mat-flat-button  class="editar-libro-btn" (click)="editarMiembro(miembro)">Editar</button>
+      <button mat-flat-button  color="warn" (click)="eliminarMiembro(miembro.id)">Eliminar</button>
+
+    </td>
+  </ng-container>
+  <!-- Fila de encabezado -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- Fila de datos -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

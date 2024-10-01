@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Biblioteca</span>
+  <button mat-icon-button (click)="sidenav.toggle();">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened mode="side" style="width: 220px; background: black;">
+    <mat-nav-list>
+      <mat-list-item routerLink="/layout/dashboard">
+        <mat-icon matListItemIcon style="color: white;">dashboard</mat-icon>
+        <div matListItemTitle style="color: white;">Dashboard</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/layout/libro">
+        <mat-icon matListItemIcon style="color: white;">book</mat-icon>
+        <div matListItemTitle style="color: white;">Libros</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/layout/biblioteca">
+        <mat-icon matListItemIcon style="color: white;">library_books</mat-icon>
+        <div matListItemTitle style="color: white;">Biblioteca</div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/layout/miembro">
+        <mat-icon matListItemIcon style="color: white;">group</mat-icon>
+        <div matListItemTitle style="color: white;">Miembros</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div style="height: 90vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

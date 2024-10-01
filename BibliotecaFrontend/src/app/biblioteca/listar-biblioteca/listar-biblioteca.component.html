@@ -1,0 +1,40 @@
+<mat-card class="m-2">
+
+  <mat-card-title>
+    <button mat-raised-button color="primary" (click)="nuevaBiblioteca()" class="m-2">
+      <mat-icon matListIcon>add</mat-icon>Nueva Biblioteca</button>
+  </mat-card-title>
+</mat-card>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let biblioteca"> {{ biblioteca.id }} </td>
+  </ng-container>
+
+  <!-- nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Título </th>
+    <td mat-cell *matCellDef="let biblioteca"> {{ biblioteca.nombre }} </td>
+  </ng-container>
+
+  <!-- ubicacion Column -->
+  <ng-container matColumnDef="ubicacion">
+    <th mat-header-cell *matHeaderCellDef> ubicacion </th>
+    <td mat-cell *matCellDef="let biblioteca"> {{ biblioteca.ubicacion }} </td>
+  </ng-container>
+
+  <!-- Accion Column -->
+
+  <ng-container matColumnDef="Accion">
+    <th mat-header-cell *matHeaderCellDef> Accion </th>
+    <td mat-cell *matCellDef="let biblioteca">
+      <button mat-flat-button  class="editar-libro-btn" (click)="editarBiblioteca(biblioteca)">Editar</button>
+      <button mat-flat-button  color="warn" (click)="eliminarBiblioteca(biblioteca.id)">Eliminar</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

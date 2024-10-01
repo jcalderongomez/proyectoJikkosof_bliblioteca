@@ -1,0 +1,17 @@
+<h2>Editar Biblioteca</h2>
+
+<form [formGroup]="bibliotecaForm" (ngSubmit)="editar()">
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Dirección</mat-label>
+    <input matInput formControlName="direccion" required>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="estado">Estado</mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit">Guardar</button>
+</form>

@@ -1,0 +1,43 @@
+<h2>Editar Libro</h2>
+
+<form [formGroup]="editarLibroForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="titulo" required>
+    <mat-error *ngIf="editarLibroForm.get('titulo')">
+      El título es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Autor</mat-label>
+    <input matInput formControlName="autor" required>
+    <mat-error *ngIf="editarLibroForm.get('autor')">
+      El autor es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>ISBN</mat-label>
+    <input matInput formControlName="isbn" required>
+    <mat-error *ngIf="editarLibroForm.get('isbn')">
+      El ISBN es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Disponible</mat-label>
+    <mat-select formControlName="disponible" required>
+      <mat-option [value]="true">Sí</mat-option>
+      <mat-option [value]="false">No</mat-option>
+    </mat-select>
+    <mat-error *ngIf="editarLibroForm.get('disponible')">
+      El estado de disponibilidad es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+    <button mat-button type="button" (click)="cancelar()">Cancelar</button>
+  </div>
+</form>
